@@ -53,7 +53,7 @@ def sign_up():
             flash('Password and password confirm must be equal', category='error')
             error = True
         if not error:
-            new_user = User(email=email, first_name=first_name, password=generate_password_hash(password, method='sha256'))
+            new_user = User(email=email, name=first_name, password=generate_password_hash(password, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)

@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block title %} Home {% endblock %}
 {% block content %} 
-<h1 align="center">Notes</h1>
-<ul class="list list-group-flush" id="notes">
-    {% for note in user.notes %}
+<h1 align="center">Tasks</h1>
+<ul class="list list-group-flush" id="tasks">
+    {% for task in user.tasks %}
         <li class="list-group-item">
-            {{note.text}}
-            {% set func_call = 'deleteNote('+note.id|string+')' %}
+            {{task.name}}
+            {% set func_call = 'deleteTask('+task.id|string+')' %}
             <button type="button" class="close" onclick="{{func_call}}">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -15,10 +15,10 @@
 </ul>
 <br/>
 <form method="POST">
-    <textarea name="note" id="note" class="form-control"></textarea>
+    <textarea name="task" id="task" class="form-control"></textarea>
     <br/>
     <div align="center">
-        <button type="submit" class="btn btn-primary">Add note</button>
+        <button type="submit" class="btn btn-primary">Add task</button>
     </div>
 </form>
 {% endblock %}

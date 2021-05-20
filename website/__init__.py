@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 db = SQLAlchemy()
 DB_NAME = 'database.db'
-from .models import Note, User
+from .models import Task, User
 from .views import views
 from .auth import auth
 
