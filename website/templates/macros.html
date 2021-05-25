@@ -1,0 +1,36 @@
+{% macro render_task(task, first, last, full=false) %}
+{% set done, total = task.subtasks_done() %}
+<li class="task-item {{'task-item-first' if first else ''}} {{'task-item-last' if last else ''}} {{'task-item-no-subtasks' if total == 0 else 'task-item-done' if total==done else ''}}">
+    <div>
+    <h3>{{task.name}}</h3>
+    {% if full %}
+        <ul class="list list-group-flush" id="subtasks_{{task.id}}">
+            {% for subtask in task.subtasks %}
+                <li class="list-group-item">
+                    {{subtask.name}}
+                    <ul class="list list-group-flush" id="items_{{subtask.id}}">
+                        {% for item in subtask.items %}
+                            <li class="list-group-item bg-success">
+                                {{item.text}}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% else %}
+                There is no subtasks in this task
+            {% endfor %}
+        </ul>
+    {% else %}
+        <ul class="list list-group-flush">
+        {% if total == 0 %}
+            There is no subtasks in this task
+        {% elif total != done %}
+            Done {{done}} / {{total}} subtasks
+        {% else %}
+            All {{done}} subtasks done
+        {% endif %}
+        </ul>
+    {% endif %}
+    </div>
+</li>
+{% endmacro %}

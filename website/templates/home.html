@@ -1,21 +1,20 @@
+{% from 'macros.html' import render_task %}
 {% extends "base.html" %}
-{% block title %} Home {% endblock %}
+{% block title %} Tasks {% endblock %}
 {% block content %} 
-<h1 align="center">Tasks</h1>
-<ul class="list list-group-flush" id="tasks">
+<h1 align="center" class="header-text">Tasks</h1>
+<ul class="list list-group-flush task-list" id="tasks">
     {% for task in user.tasks %}
-        <li class="list-group-item">
-            {{task.name}}
-            {% set func_call = 'deleteTask('+task.id|string+')' %}
-            <button type="button" class="close" onclick="{{func_call}}">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </li>
+        {% if not loop.first %}
+        <hr/>
+        {% endif %}
+        {{ render_task(task, loop.first, loop.last)}}
+        
     {% endfor %}
 </ul>
 <br/>
-<form method="POST">
-    <textarea name="task" id="task" class="form-control"></textarea>
+<form method="POST" autocomplete="off">
+    <input type="text" name="task" id="task" class="form-control"/>
     <br/>
     <div align="center">
         <button type="submit" class="btn btn-primary">Add task</button>

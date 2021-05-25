@@ -1,3 +1,8 @@
+body {
+    background-color: #333333;
+    font-family: Montserrat;
+    font-style: normal;
+}
 a {
     text-decoration: none;
     background-image: linear-gradient(currentColor, currentColor);
@@ -9,4 +14,78 @@ a {
 
 a:hover {
     background-size: 100% 2px;
+}
+
+a:visited {
+    background-position: 0% 100%;
+}
+
+a:active {
+    background-position: 0% 100%;
+}
+
+.navbar {
+    width: 100%;
+    background: #666666;
+}
+
+.nav-item {
+    align-items: center;
+    text-align: center;
+    color: rgba(255,255,255,1)!important;
+    height: 50px;
+}
+
+.nav-link {
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 30px;
+    margin-right: 20px;
+}
+
+.nav-title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 50px;
+}
+
+.header-text {
+    color: rgba(255,255,255,1)!important;
+    font-weight: 500;
+    font-size: 75px;
+}
+
+.task-item {
+    width: 100%;
+    padding: 5px;
+    list-style: none;
+}
+
+.task-item-no-subtasks {
+     background-color: wheat
+}
+
+.task-item-done {
+    background-color: springgreen;
+}
+
+.task-item-first {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.task-item-last {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.task-list {
+    border-radius: 15px;
+    background-color: cadetblue;
+    padding-left: 0;
+}
+
+hr {
+    margin: 0;
+    border-top: 1px solid #000000;
 }
