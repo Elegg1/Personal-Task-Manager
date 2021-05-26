@@ -1,7 +1,7 @@
 {% macro render_task(task, first, last, full=false) %}
 {% set done, total = task.subtasks_done() %}
-<li class="task-item {{'task-item-first' if first else ''}} {{'task-item-last' if last else ''}} {{'task-item-no-subtasks' if total == 0 else 'task-item-done' if total==done else ''}}">
-    <div>
+<li class="block task-item {{'task-item-first' if first else ''}} {{'task-item-last' if last else ''}} {{'task-item-no-subtasks' if total == 0 else 'task-item-done' if total==done else ''}}">
+    <div class="block">
     <h3>{{task.name}}</h3>
     {% if full %}
         <ul class="list list-group-flush" id="subtasks_{{task.id}}">
@@ -32,5 +32,6 @@
         </ul>
     {% endif %}
     </div>
+    <a href="#" class="block-link"></a>
 </li>
 {% endmacro %}

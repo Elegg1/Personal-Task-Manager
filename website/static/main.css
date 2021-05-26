@@ -3,6 +3,19 @@ body {
     font-family: Montserrat;
     font-style: normal;
 }
+
+h3 {
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+form {
+    padding-top: .5rem;
+}
+
 a {
     text-decoration: none;
     background-image: linear-gradient(currentColor, currentColor);
@@ -85,7 +98,92 @@ a:active {
     padding-left: 0;
 }
 
+.create-task-subtask-list {
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    padding-left: 0;
+}
+
+.create-task-subtask {
+    width: 100%;
+    padding: 5px;
+    font-size: 45px;
+    list-style: none;
+}
+
+.create-task-item {
+    font-size: 30px;
+    list-style: none;
+}
+
+.create-task-item-text {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.create-task-subtask input {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 100%;
+    margin-right: .5rem;
+    margin-bottom: .3rem;
+}
+
+.create-task-subtask input:focus {
+    outline: none;
+}
+
+
+.create-task-item button {
+    outline: none!important;
+}
+
+.create-task-item-delete {
+    background-color: black;
+    color: white;
+    border-width: 0;
+}
+
+.new-item-btn {
+    font-size: 15px;
+    border-radius: 20px;
+}
+
+.new-subtask-btn {
+    font-size: 30px;
+    border-radius: 35px;
+    margin-bottom: .5rem;
+    margin-left: .5rem;
+    margin-top: .5rem;
+}
+
 hr {
     margin: 0;
-    border-top: 1px solid #000000;
+    border-top: 3px solid #000000;
+}
+
+form {
+    margin-bottom: 2rem;
+}
+
+.block {
+    position: relative;
+    z-index: 0;
+    display: block;
+}
+
+.block-link {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.block-link:hover {
+    background-size: 0% 2px;
 }
