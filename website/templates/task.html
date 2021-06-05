@@ -15,24 +15,12 @@
                 {{subtask.name}}
                 <ul class="list list-group-flush item-list">
                     {% for item in subtask.items %}
-                        <!-- {% if not loop.first %}
-                            <hr style="border-top: 1px solid #000000"/>
-                        {% endif %} -->
                         <li onclick="toggle_item(this.id)" id="item_{{item.id}}" class="item-item {{'item-item-done' if item.done else ''}} {{'item-item-first' if loop.first else ''}} {{'item-item-last' if loop.last else ''}}">
                             {% set checked = 'checked' if item.done else ''%}
                             <input type="checkbox" class="btn-check" id="btn-check-{{item.id}}" {{checked}} autocomplete="off">
                             <label style="margin: 0; color: black" for="btn-check-{{item.id}}">{{item.text}}</label>
                         </li>
                         
-                        <!-- <div style="display: flex; flex-wrap: nowrap;">
-                            {% if item.done %}
-                                <input type="checkbox" checked/>
-                            {% else %}
-                                <input type="checkbox"/>
-                            {% endif %}
-                            <li class="item-item {{'item-item-done' if item.done else ''}}"></li>
-                            
-                        </div> -->
                     {% endfor %}
                 </ul>
             </li>
@@ -40,32 +28,26 @@
     </ul>
     
 {% endif %}
+
+<div align="center">
+    <button type="button" id="{{task.id}}" class="btn btn-danger" onclick="document.querySelector('dialog').show()">Delete Task</button>
+</div>
+
+<div align="center">
+    <a class="btn btn-primary" href="{{url_for('views.modify_task', task_id=task.id)}}">
+        Modify Task
+    </a>
+</div>
+
+<dialog>
+    <p>Are you absolutely sure?</p>
+    <button class="btn btn-danger" id="agree_delete_{{task.id}}" onclick="deleteTask(this.id.split('_')[2])">Yes, delete {{task.name}}</button>
+    <button class="btn btn-primary" id="disagree_delete_{{task.id}}" onclick="document.querySelector('dialog').close()">No</button>
+</dialog>
+
 <script
       type="text/javascript"
       src="{{ url_for('static', filename='view_task.js') }}"
     ></script>
 
 {% endblock %}
-
-
-
-
-
-<!-- {% if total != 0 %}
-        <ul class="list list-group-flush" id="subtasks_{{task.id}}">
-            {% for subtask in task.subtasks %}
-                <li class="list-group-item">
-                    {{subtask.name}}
-                    <ul class="list list-group-flush" id="items_{{subtask.id}}">
-                        {% for item in subtask.items %}
-                            <li class="list-group-item bg-success">
-                                {{item.text}}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            {% else %}
-                There is no subtasks in this task
-            {% endfor %}
-        {% endif %}
-        </ul> -->

@@ -3,6 +3,7 @@
 <li class="block task-item {{'task-item-first' if first else ''}} {{'task-item-last' if last else ''}} {{'task-item-no-subtasks' if total == 0 else 'task-item-done' if total==done else ''}}">
     <div class="block">
         <h3>{{task.name}}</h3>
+        
         <ul class="list list-group-flush">
             {% if total == 0 %}
                 There is no subtasks in this task

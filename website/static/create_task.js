@@ -2,7 +2,6 @@ $(window).on('beforeunload', function() {
     return "";
 });
 $('form').submit(function () {
-    console.log("hahahahhahaha");
     $(window).unbind('beforeunload');
 });
 
@@ -45,6 +44,7 @@ function create_task_delete_subtask(subtask_id){
 }
 
 function create_task_new_item(subtask_id){
+    console.log(subtask_id)
     var ul = document.getElementById("item_" + subtask_id + "_" + "1").parentNode.parentNode.parentNode;
     var items_count = ul.children.length;
     var item_id = subtask_id + "_" + (items_count+1);
