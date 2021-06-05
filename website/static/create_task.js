@@ -46,7 +46,6 @@ function create_task_delete_subtask(subtask_id){
 
 function create_task_new_item(subtask_id){
     var ul = document.getElementById("item_" + subtask_id + "_" + "1").parentNode.parentNode.parentNode;
-    console.log(ul);
     var items_count = ul.children.length;
     var item_id = subtask_id + "_" + (items_count+1);
 
@@ -80,14 +79,13 @@ function create_task_new_subtask(){
     var ul = document.getElementById("subtasks_list");
     var subtask_id = ul.children.length;
     var item_id = subtask_id + "_1";
-    console.log(subtask_id);
     var subtask_li = document.createElement("li");
     subtask_li.setAttribute("class", "create-task-subtask");
     var subtask_input = document.createElement("input");
     subtask_input.type = "text";
     subtask_input.name = "subtask_" + subtask_id;
     subtask_input.id = subtask_input.name;
-    subtask_input.placeholder = "Subtask";
+    subtask_input.value = "Subtask";
     var subtask_ul = document.createElement("ul");
     subtask_ul.setAttribute("class", "list list-group-flush");
     var item_li = document.createElement("li");

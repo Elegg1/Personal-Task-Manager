@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %} Error 403 - forbidden {% endblock %}
+{% block content %}
+<p style="color: white;">Sorry, you cannot access that page, <a href="{{url_for('views.home')}}">go to home page</a></p>
+<br/>
+{{error_message}}
+{% endblock %}

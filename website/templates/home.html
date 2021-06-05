@@ -1,4 +1,4 @@
-{% from 'macros.html' import render_task %}
+{% from 'macros.html' import render_task_in_list %}
 {% extends "base.html" %}
 {% block title %} Tasks {% endblock %}
 {% block content %} 
@@ -6,9 +6,9 @@
 <ul class="list list-group-flush task-list" id="tasks">
     {% for task in user.tasks %}
         {% if not loop.first %}
-        <hr/>
+            <hr/>
         {% endif %}
-        {{ render_task(task, loop.first, loop.last)}}
+        {{ render_task_in_list(task, loop.first, loop.last)}}
         
     {% endfor %}
 </ul>
