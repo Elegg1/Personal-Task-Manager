@@ -125,21 +125,4 @@ def toggle_item():
         if Task.query.get(subtask.task_id).user_id == current_user.id:
             db.session.query(Item).filter(Item.id == item_id).update({Item.done: not item.done})
             db.session.commit()
-    return jsonify({'item_done': item.done, 'subtask_done':subtask.done(), 'subtask_progress':subtask.in_progress()})
-
-
-@views.route('/get-item-done/<item_id>')
-@login_required
-def get_item_done(item_id):
-    print(1)
-    item = Item.query.get(item_id)
-    db.session.query(Item).filter(Item.id == item_id).update({Item.done: not item.done})
-    db.session.commit()
-    return jsonify({'done': item.done})
-
-@views.route('/get-subtask-done/<item_id>')
-@login_required
-def get_subtask_done(item_id):
-    item = Item.query.get(item_id)
-    subtask = Subtask.query.get(item.subtask_id)
-    return jsonify({'done': subtask.done(), 'progress': subtask.in_progress()})
+    return jsonify({})
