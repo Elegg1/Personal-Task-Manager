@@ -1,0 +1,218 @@
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-06-06 22:11+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: website/__init__.py:28
+msgid "Please log in to access this page."
+msgstr ""
+
+#: website/auth.py:19
+msgid "Logged in"
+msgstr ""
+
+#: website/auth.py:23
+msgid "Wrong password"
+msgstr ""
+
+#: website/auth.py:25
+msgid "Wrong email"
+msgstr ""
+
+#: website/auth.py:45
+msgid "Account with this email already exists"
+msgstr ""
+
+#: website/auth.py:48
+msgid "Email must be greater than 3 characters"
+msgstr ""
+
+#: website/auth.py:51
+msgid "First name must be greater than 1 character"
+msgstr ""
+
+#: website/auth.py:54
+msgid "Password and password confirm must be equal"
+msgstr ""
+
+#: website/auth.py:61
+msgid "Account created!"
+msgstr ""
+
+#: website/views.py:17
+msgid "New Task name cannot be empty"
+msgstr ""
+
+#: website/views.py:103
+msgid "You trying to access task that is not yours"
+msgstr ""
+
+#: website/views.py:106
+msgid "There is no task with that id"
+msgstr ""
+
+#: website/templates/base.html:60
+msgid "Home"
+msgstr ""
+
+#: website/templates/base.html:61
+msgid "Logout"
+msgstr ""
+
+#: website/templates/base.html:63 website/templates/login.html:2
+#: website/templates/login.html:5 website/templates/login.html:27
+msgid "Login"
+msgstr ""
+
+#: website/templates/base.html:64 website/templates/sign_up.html:2
+#: website/templates/sign_up.html:5 website/templates/sign_up.html:47
+msgid "Sign Up"
+msgstr ""
+
+#: website/templates/create_task.html:3
+msgid "Create"
+msgstr ""
+
+#: website/templates/create_task.html:10 website/templates/modify_task.html:9
+msgid "Subtask"
+msgstr ""
+
+#: website/templates/create_task.html:14 website/templates/modify_task.html:13
+msgid "Item"
+msgstr ""
+
+#: website/templates/create_task.html:22 website/templates/modify_task.html:21
+#: website/templates/modify_task.html:42
+msgid "New Item"
+msgstr ""
+
+#: website/templates/create_task.html:26 website/templates/modify_task.html:47
+msgid "New Subtask"
+msgstr ""
+
+#: website/templates/create_task.html:30 website/templates/modify_task.html:51
+msgid "Create Task"
+msgstr ""
+
+#: website/templates/error_403.html:4
+msgid "Sorry, you cannot access that page"
+msgstr ""
+
+#: website/templates/error_403.html:4 website/templates/error_404.html:4
+msgid "go to home page"
+msgstr ""
+
+#: website/templates/error_404.html:4
+msgid "Sorry, that page does not exist"
+msgstr ""
+
+#: website/templates/home.html:17
+msgid "New Task name"
+msgstr ""
+
+#: website/templates/home.html:20
+msgid "Add task"
+msgstr ""
+
+#: website/templates/login.html:7 website/templates/sign_up.html:7
+msgid "Email address"
+msgstr ""
+
+#: website/templates/login.html:13 website/templates/sign_up.html:13
+msgid "Enter email"
+msgstr ""
+
+#: website/templates/login.html:17 website/templates/sign_up.html:27
+msgid "Password"
+msgstr ""
+
+#: website/templates/login.html:23 website/templates/sign_up.html:33
+msgid "Enter password"
+msgstr ""
+
+#: website/templates/macros.html:9
+msgid "There is no subtasks in this task"
+msgstr ""
+
+#: website/templates/macros.html:11
+msgid "Done"
+msgstr ""
+
+#: website/templates/macros.html:11
+msgid "subtasks"
+msgstr ""
+
+#: website/templates/macros.html:13
+msgid "All"
+msgstr ""
+
+#: website/templates/macros.html:13
+msgid "subtasks done"
+msgstr ""
+
+#: website/templates/modify_task.html:2
+msgid "Create "
+msgstr ""
+
+#: website/templates/modify_task.html:2
+msgid "Modify "
+msgstr ""
+
+#: website/templates/modify_task.html:51
+msgid "Save changes"
+msgstr ""
+
+#: website/templates/sign_up.html:17
+msgid "First Name"
+msgstr ""
+
+#: website/templates/sign_up.html:23
+msgid "Enter your first name"
+msgstr ""
+
+#: website/templates/sign_up.html:37
+msgid "Password confirm"
+msgstr ""
+
+#: website/templates/sign_up.html:43
+msgid "Confirm password"
+msgstr ""
+
+#: website/templates/task.html:7
+msgid "This task has no subtasks"
+msgstr ""
+
+#: website/templates/task.html:33
+msgid "Delete Task"
+msgstr ""
+
+#: website/templates/task.html:38
+msgid "Modify Task"
+msgstr ""
+
+#: website/templates/task.html:43
+msgid "Are you absolutely sure?"
+msgstr ""
+
+#: website/templates/task.html:44
+msgid "Yes, delete"
+msgstr ""
+
+#: website/templates/task.html:45
+msgid "No"
+msgstr ""
+

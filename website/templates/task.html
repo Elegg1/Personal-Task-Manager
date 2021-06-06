@@ -4,7 +4,7 @@
 <h1 align="center" class="header-text">{{task.name}}</h1>
 {% set done, total = task.subtasks_done() %}
 {% if total == 0 %}
-    <p style="padding: .3rem; border-radius:10px; background-color: wheat;">This task has no subtasks</p>
+    <p style="padding: .3rem; border-radius:10px; background-color: wheat;">{{_('This task has no subtasks')}}</p>
 {% else %}
     <ul class="list list-group-flush subtask-list">
         {% for subtask in task.subtasks %}
@@ -30,19 +30,19 @@
 {% endif %}
 
 <div align="center">
-    <button type="button" id="{{task.id}}" class="btn btn-danger" onclick="document.querySelector('dialog').show()">Delete Task</button>
+    <button type="button" id="{{task.id}}" class="btn btn-danger" onclick="document.querySelector('dialog').show()">{{_('Delete Task')}}</button>
 </div>
 
 <div align="center">
     <a class="btn btn-primary" href="{{url_for('views.modify_task', task_id=task.id)}}">
-        Modify Task
+        {{_('Modify Task')}}
     </a>
 </div>
 
 <dialog>
-    <p>Are you absolutely sure?</p>
-    <button class="btn btn-danger" id="agree_delete_{{task.id}}" onclick="deleteTask(this.id.split('_')[2])">Yes, delete {{task.name}}</button>
-    <button class="btn btn-primary" id="disagree_delete_{{task.id}}" onclick="document.querySelector('dialog').close()">No</button>
+    <p>{{_('Are you absolutely sure?')}}</p>
+    <button class="btn btn-danger" id="agree_delete_{{task.id}}" onclick="deleteTask(this.id.split('_')[2])">{{_('Yes, delete')}} {{task.name}}</button>
+    <button class="btn btn-primary" id="disagree_delete_{{task.id}}" onclick="document.querySelector('dialog').close()">{{_('No')}}</button>
 </dialog>
 
 <script

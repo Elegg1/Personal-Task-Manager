@@ -6,11 +6,11 @@
         
         <ul class="list list-group-flush">
             {% if total == 0 %}
-                There is no subtasks in this task
+                {{_('There is no subtasks in this task')}}
             {% elif total != done %}
-                Done {{done}} / {{total}} subtasks
+                {{_('Done')}} {{done}} / {{total}} {{_('subtasks')}}
             {% else %}
-                All {{done}} subtasks done
+                {{_('All')}} {{done}} {{_('subtasks done')}}
             {% endif %}
         </ul>
     </div>

@@ -1,4 +1,5 @@
 import json
+from flask_babel import gettext
 from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for
 from flask_login import login_required, current_user
 from .models import Task, Subtask, Item
@@ -13,7 +14,7 @@ def home():
     if request.method == 'POST':
         task_name = request.form.get('task')
         if len(task_name) == 0:
-            flash('New task name cannot be empty', category='error')
+            flash(gettext('New Task name cannot be empty'), category='error')
         else:
             return redirect(url_for('views.create_task', task_name=task_name))
     return render_template('home.html', user=current_user)
@@ -99,10 +100,10 @@ def view_task(task_id):
 
     if task:
         if task.user_id != current_user.id:
-            return render_template('error_403.html', user=current_user, error="You trying to access task that is not yours"), 403
+            return render_template('error_403.html', user=current_user, error=gettext("You trying to access task that is not yours")), 403
         return render_template('task.html', user=current_user, task=task)
     else:
-        return render_template('error_404.html', user=current_user, error=f'There is no task with that id({task_id})'), 404
+        return render_template('error_404.html', user=current_user, error=gettext('There is no task with that id') + f'({task_id})'), 404
 
 @views.route('/delete-task', methods=['POST'])
 @login_required

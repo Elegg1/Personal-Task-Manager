@@ -1,0 +1,220 @@
+# Russian translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-06-06 22:11+0500\n"
+"PO-Revision-Date: 2021-06-06 22:12+0500\n"
+"Last-Translator: \n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0\n"
+
+#: website/__init__.py:28
+msgid "Please log in to access this page."
+msgstr "Пожалуйста, войдите для доступа к этой станице."
+
+#: website/auth.py:19
+msgid "Logged in"
+msgstr "Вы вошли в аккаунт"
+
+#: website/auth.py:23
+msgid "Wrong password"
+msgstr "Неправильный пароль"
+
+#: website/auth.py:25
+msgid "Wrong email"
+msgstr "Неправильный адрес электронной почты"
+
+#: website/auth.py:45
+msgid "Account with this email already exists"
+msgstr "Учетная запись с таким адресом электронной почты уже существует"
+
+#: website/auth.py:48
+msgid "Email must be greater than 3 characters"
+msgstr "Электронная почта должна быть длиннее 3х символов"
+
+#: website/auth.py:51
+msgid "First name must be greater than 1 character"
+msgstr "Имя должно быть длиннее 1го символа"
+
+#: website/auth.py:54
+msgid "Password and password confirm must be equal"
+msgstr "Подтверждение пароля и пароль должны совпадать"
+
+#: website/auth.py:61
+msgid "Account created!"
+msgstr "Аккаунт создан!"
+
+#: website/views.py:17
+msgid "New Task name cannot be empty"
+msgstr "Имя новой задачи не может быть пустым"
+
+#: website/views.py:103
+msgid "You trying to access task that is not yours"
+msgstr "Вы пытаетесь получить доступ к задаче, которая не является вашей"
+
+#: website/views.py:106
+msgid "There is no task with that id"
+msgstr "Не существует задачи с таким id"
+
+#: website/templates/base.html:60
+msgid "Home"
+msgstr "Домашняя страница"
+
+#: website/templates/base.html:61
+msgid "Logout"
+msgstr "Выйти"
+
+#: website/templates/base.html:63 website/templates/login.html:2
+#: website/templates/login.html:5 website/templates/login.html:27
+msgid "Login"
+msgstr "Войти"
+
+#: website/templates/base.html:64 website/templates/sign_up.html:2
+#: website/templates/sign_up.html:5 website/templates/sign_up.html:47
+msgid "Sign Up"
+msgstr "Зарегистрироваться"
+
+#: website/templates/create_task.html:3
+msgid "Create"
+msgstr "Создать"
+
+#: website/templates/create_task.html:10 website/templates/modify_task.html:9
+msgid "Subtask"
+msgstr "Подзадача"
+
+#: website/templates/create_task.html:14 website/templates/modify_task.html:13
+msgid "Item"
+msgstr "Пункт"
+
+#: website/templates/create_task.html:22 website/templates/modify_task.html:21
+#: website/templates/modify_task.html:42
+msgid "New Item"
+msgstr "Новый пункт"
+
+#: website/templates/create_task.html:26 website/templates/modify_task.html:47
+msgid "New Subtask"
+msgstr "Новая подзадача"
+
+#: website/templates/create_task.html:30 website/templates/modify_task.html:51
+msgid "Create Task"
+msgstr "Создать задачу"
+
+#: website/templates/error_403.html:4
+msgid "Sorry, you cannot access that page"
+msgstr "Извините, у вас нет доступа к данной странице"
+
+#: website/templates/error_403.html:4 website/templates/error_404.html:4
+msgid "go to home page"
+msgstr "перейти на домашнюю станицу"
+
+#: website/templates/error_404.html:4
+msgid "Sorry, that page does not exist"
+msgstr "Извините, данная страница не существует"
+
+#: website/templates/home.html:17
+msgid "New Task name"
+msgstr "Имя новой задачи"
+
+#: website/templates/home.html:20
+msgid "Add task"
+msgstr "Добавить задачу"
+
+#: website/templates/login.html:7 website/templates/sign_up.html:7
+msgid "Email address"
+msgstr "Адрес электронной почты"
+
+#: website/templates/login.html:13 website/templates/sign_up.html:13
+msgid "Enter email"
+msgstr "Введите электронную почту"
+
+#: website/templates/login.html:17 website/templates/sign_up.html:27
+msgid "Password"
+msgstr "Пароль"
+
+#: website/templates/login.html:23 website/templates/sign_up.html:33
+msgid "Enter password"
+msgstr "Введите пароль"
+
+#: website/templates/macros.html:9
+msgid "There is no subtasks in this task"
+msgstr "У этой задачи нет подзадач"
+
+#: website/templates/macros.html:11
+msgid "Done"
+msgstr "Сделано"
+
+#: website/templates/macros.html:11
+msgid "subtasks"
+msgstr "подзадач"
+
+#: website/templates/macros.html:13
+msgid "All"
+msgstr "Все"
+
+#: website/templates/macros.html:13
+msgid "subtasks done"
+msgstr "подзадач сделаны"
+
+#: website/templates/modify_task.html:2
+msgid "Create "
+msgstr "Создать "
+
+#: website/templates/modify_task.html:2
+msgid "Modify "
+msgstr "Изменить "
+
+#: website/templates/modify_task.html:51
+msgid "Save changes"
+msgstr "Сохранить изменения"
+
+#: website/templates/sign_up.html:17
+msgid "First Name"
+msgstr "Имя"
+
+#: website/templates/sign_up.html:23
+msgid "Enter your first name"
+msgstr "Введите своё имя"
+
+#: website/templates/sign_up.html:37
+msgid "Password confirm"
+msgstr "Подтверждение пароля"
+
+#: website/templates/sign_up.html:43
+msgid "Confirm password"
+msgstr "Повторите пароль"
+
+#: website/templates/task.html:7
+msgid "This task has no subtasks"
+msgstr "У этой задачи нет подзадач"
+
+#: website/templates/task.html:33
+msgid "Delete Task"
+msgstr "Удалить задачу"
+
+#: website/templates/task.html:38
+msgid "Modify Task"
+msgstr "Изменить задачу"
+
+#: website/templates/task.html:43
+msgid "Are you absolutely sure?"
+msgstr "Вы уверены?"
+
+#: website/templates/task.html:44
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: website/templates/task.html:45
+msgid "No"
+msgstr "Нет"

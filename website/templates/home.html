@@ -1,6 +1,6 @@
 {% from 'macros.html' import render_task_in_list %}
 {% extends "base.html" %}
-{% block title %} Tasks {% endblock %}
+{% block title %} Personal Task Manager {% endblock %}
 {% block content %} 
 <h1 align="center" class="header-text">Tasks</h1>
 <ul class="list list-group-flush task-list" id="tasks">
@@ -14,10 +14,11 @@
 </ul>
 <br/>
 <form method="POST" autocomplete="off">
-    <input type="text" name="task" id="task" class="form-control"/>
+    <input type="text" name="task" id="task" class="form-control" placeholder="{{_('New Task name')}}"/>
     <br/>
     <div align="center">
-        <button type="submit" class="btn btn-primary">Add task</button>
+        <button type="submit" class="btn btn-primary">{{_('Add task')}}</button>
     </div>
 </form>
+
 {% endblock %}

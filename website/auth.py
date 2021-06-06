@@ -1,3 +1,4 @@
+from flask_babel import gettext
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
@@ -15,13 +16,13 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in', category='success')
+                flash(gettext('Logged in'), category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
-                flash('Wrong password', category='error')
+                flash(gettext('Wrong password'), category='error')
         else:
-            flash('Wrong email', category='error')
+            flash(gettext('Wrong email'), category='error')
     return render_template('login.html', user=current_user)
 
 @auth.route('/logout')
@@ -41,22 +42,22 @@ def sign_up():
         error = False
         user = User.query.filter_by(email=email).first()
         if user:
-            flash('Account with this email already exists', category='error')
-            return render_template('sign_up.html')
+            flash(gettext('Account with this email already exists'), category='error')
+            return render_template('sign_up.html', user=current_user)
         if len(email) < 4:
-            flash('Email must be greater than 3 characters', category='error')
+            flash(gettext('Email must be greater than 3 characters'), category='error')
             error = True
         if len(first_name) < 2:
-            flash('First name must be greater than 1 character', category='error')
+            flash(gettext('First name must be greater than 1 character'), category='error')
             error = True
         if password != pwd_confirm:
-            flash('Password and password confirm must be equal', category='error')
+            flash(gettext('Password and password confirm must be equal'), category='error')
             error = True
         if not error:
             new_user = User(email=email, name=first_name, password=generate_password_hash(password, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)
-            flash('Account created!', category='success')
+            flash(gettext('Account created!'), category='success')
             return redirect(url_for('views.home'))
     return render_template('sign_up.html', user=current_user)
