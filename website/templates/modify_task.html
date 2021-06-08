@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block title %} {{_('Create ') if creating else _('Modify ')}}{{task.name}} {% endblock %}
 {% block content %}
+{% set new_item_call = 'create_task_new_item(this.id, "' + _('Item')+'")' %}
+{% set new_subtask_call = 'create_task_new_subtask("' + _('Subtask') + '", "' + _('Item') +'", "' + _('New Item') + '")' %}
 <h1 align="center" class="header-text">{{task.name}}</h1>
 <form method="POST" autocomplete="off">
     <ul class="list list-group-flush create-task-subtask-list" id="subtasks_list">
@@ -18,7 +20,7 @@
                     </li>
                 </ul>
                 <div align="center">
-                    <button type="button" id="1" class="btn btn-primary new-item-btn" onclick="create_task_new_item(this.id)">{{_('New Item')}}</button>
+                    <button type="button" id="1" class="btn btn-primary new-item-btn" onclick="{{new_item_call}}">{{_('New Item')}}</button>
                 </div>
             </li>
         {% endif %}
@@ -39,12 +41,12 @@
                     {% endfor %}
                 </ul>
                 <div align="center">
-                    <button type="button" id="{{subtask_id}}" class="btn btn-primary new-item-btn" onclick="create_task_new_item(this.id)">{{_('New Item')}}</button>
+                    <button type="button" id="{{subtask_id}}" class="btn btn-primary new-item-btn" onclick="{{new_item_call}}">{{_('New Item')}}</button>
                 </div>
             </li>
         {% endfor %}
         <div align="left">
-            <button type="button" class="btn btn-primary new-subtask-btn" onclick="create_task_new_subtask()">{{_('New Subtask')}}</button>
+            <button type="button" class="btn btn-primary new-subtask-btn" onclick="{{new_subtask_call}}">{{_('New Subtask')}}</button>
         </div>
     </ul>
     <div align="center" style="margin-bottom: .5rem;">

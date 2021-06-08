@@ -5,6 +5,8 @@ $('form').submit(function () {
     $(window).unbind('beforeunload');
 });
 
+
+
 function create_task_delete_item(item_id){
     var li = document.getElementById("item_" + item_id).parentNode.parentNode;
     var sec_id = Number(item_id.split('_')[1]);
@@ -43,7 +45,7 @@ function create_task_delete_subtask(subtask_id){
     }
 }
 
-function create_task_new_item(subtask_id){
+function create_task_new_item(subtask_id, item_text){
     var ul = document.getElementById("item_" + subtask_id + "_" + "1").parentNode.parentNode.parentNode;
     var items_count = ul.children.length;
     var item_id = subtask_id + "_" + (items_count+1);
@@ -56,7 +58,7 @@ function create_task_new_item(subtask_id){
     item_input.type = "text";
     item_input.id = "item_" + item_id;
     item_input.name = item_input.id;
-    item_input.value = "Item";
+    item_input.value = item_text;
     var item_button = document.createElement("button");
     item_button.type = "button";
     item_button.id = item_id;
@@ -74,7 +76,7 @@ function create_task_new_item(subtask_id){
 }
 
 
-function create_task_new_subtask(){
+function create_task_new_subtask(subtask_text, item_text, new_item_text){
     var ul = document.getElementById("subtasks_list");
     var subtask_id = ul.children.length;
     var item_id = subtask_id + "_1";
@@ -84,7 +86,7 @@ function create_task_new_subtask(){
     subtask_input.type = "text";
     subtask_input.name = "subtask_" + subtask_id;
     subtask_input.id = subtask_input.name;
-    subtask_input.value = "Subtask";
+    subtask_input.value = subtask_text;
     var subtask_ul = document.createElement("ul");
     subtask_ul.setAttribute("class", "list list-group-flush");
     var item_li = document.createElement("li");
@@ -95,7 +97,7 @@ function create_task_new_subtask(){
     item_input.type = "text";
     item_input.id = "item_" + item_id;
     item_input.name = item_input.id;
-    item_input.value = "Item";
+    item_input.value = item_text;
     var item_button = document.createElement("button");
     item_button.type = "button";
     item_button.id = item_id;
@@ -110,8 +112,8 @@ function create_task_new_subtask(){
     subtask_button.type = "button";
     subtask_button.id = subtask_id + "";
     subtask_button.setAttribute("class", "btn btn-primary new-item-btn");
-    subtask_button.setAttribute("onclick", "create_task_new_item(this.id)");
-    subtask_button.innerHTML = "New Item";
+    subtask_button.setAttribute("onclick", "create_task_new_item(this.id, '"+item_text+"')");
+    subtask_button.innerHTML = new_item_text;
 
     item_button.appendChild(item_button_span);
     item_div.appendChild(item_input);
