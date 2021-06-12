@@ -1,4 +1,6 @@
-from os import path
+import os
+path = os.path
+environ = os.environ
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -13,15 +15,16 @@ from .auth import auth
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = r'{=RL<>3TDj;0{y)>l/&6Iy<>jHVd<{'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    uri = os.getenv("DATABASE_URL")
+    if uri.startswith("postgres://"):
+        uri = uri.replace("postgres://", "postgresql://", 1)
+    app.config['SQLALCHEMY_DATABASE_URI'] = uri
     app.config['LANGUAGES'] = {'en': 'English', 'ru': 'Russian'}
     db.init_app(app)
 
     
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
-
-    create_database(app)
     
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
@@ -41,5 +44,4 @@ def create_app():
     return app
 
 def create_database(app):
-    if not path.exists('website/' + DB_NAME):
-        db.create_all(app=app)
+    db.create_all(app=app)
