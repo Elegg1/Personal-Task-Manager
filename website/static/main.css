@@ -116,6 +116,16 @@ a:active {
     padding-left: 0;
 }
 
+.create-task-task-name {
+    border: 0!important;
+    outline: none!important;
+    text-align: center;
+    color:white;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
 .create-task-subtask-list {
     border-radius: 15px;
     background-color: black;

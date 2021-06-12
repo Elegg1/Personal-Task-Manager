@@ -23,23 +23,37 @@ def home():
 @login_required
 def create_task(task_name):
     if request.method == 'POST':
+        
         task = Task(name=task_name, user_id=current_user.id)
         db.session.add(task)
         db.session.commit()
         last_subtask_id = -1
+        err = False
         for di in request.form:
             if di.startswith('subtask'):
-                subtask = Subtask(name=request.form.get(di), task_id=task.id)
+                if request.form.get(di) == '':
+                    flash(gettext('Subtask name cannot be empty'), category='error')
+                    err = True
+                    subtask_name = gettext('Subtask')
+                else:
+                    subtask_name = request.form.get(di)
+                subtask = Subtask(name=subtask_name, task_id=task.id)
                 last_subtask_id = subtask.id
                 db.session.add(subtask)
                 db.session.commit()
                 last_subtask_id = subtask.id
-
             else:
-                print(last_subtask_id)
-                item = Item(text=request.form.get(di), done=False, subtask_id=last_subtask_id)
+                if request.form.get(di) == '':
+                    flash(gettext('Item text cannnot be empty'), category='error')
+                    err = True
+                    item_text = gettext('Item')
+                else:
+                    item_text = request.form.get(di)
+                item = Item(text=item_text, done=False, subtask_id=last_subtask_id)
                 db.session.add(item)
         db.session.commit()
+        if err:
+            return redirect(url_for('views.modify_task', task_id=task.id))
         return redirect(url_for('views.home'))
     task = Task(name=task_name, user_id = current_user.id)
     return render_template('modify_task.html', task=task, user=current_user, creating=True)
@@ -47,31 +61,57 @@ def create_task(task_name):
 @views.route('/modify-task/<task_id>', methods=['GET', 'POST'])
 @login_required
 def modify_task(task_id):
+    task = Task.query.get(task_id)
+    if not task:
+        return render_template('error_404.html', user=current_user, error=gettext('There is no task with that id') + f'({task_id})'), 404
+    elif task.user_id != current_user.id:
+        return render_template('error_403.html', user=current_user, error=gettext('You trying to access task that is not yours')), 403
+    
     if request.method == 'POST':
         task = Task.query.get(task_id)
         subtask_ids, item_ids = [], []
+        err = False
         for di in request.form:
-            if di.startswith('subtask'):
+            if di == 'task_name':
+                if request.form.get(di) == '':
+                    flash(gettext('Task name cannot be empty'), category='error')
+                    err = True
+                else:
+                    db.session.query(Task).filter(Task.id == task.id).update({Task.name: request.form.get(di)})
+                    db.session.commit()
+            elif di.startswith('subtask'):
+                if request.form.get(di) == '':
+                    flash(gettext('Subtask name cannot be empty'), category='error')
+                    err = True
+                    subtask_name = gettext('Subtask')
+                else:
+                    subtask_name = request.form.get(di)
                 if di.find('id') != -1:
                     subtask_id = int(di.split('_')[-1])
-                    db.session.query(Subtask).filter(Subtask.id == subtask_id).update({Subtask.name: request.form.get(di)})
+                    db.session.query(Subtask).filter(Subtask.id == subtask_id).update({Subtask.name: subtask_name})
                     db.session.commit()
                     last_subtask_id = subtask_id
                 else:
-                    subtask = Subtask(name=request.form.get(di), task_id=task.id)
+                    subtask = Subtask(name=subtask_name, task_id=task.id)
                     db.session.add(subtask)
                     db.session.commit()
                     last_subtask_id = subtask.id
                 subtask_ids.append(last_subtask_id)
 
             else:
+                if request.form.get(di) == '':
+                    flash(gettext('Item text cannnot be empty'), category='error')
+                    err = True
+                    item_text = gettext('Item')
+                else:
+                    item_text = request.form.get(di)
                 if di.find('id') != -1:
                     item_id = int(di.split('_')[-1])
-                    db.session.query(Item).filter(Item.id == item_id).update({Item.text: request.form.get(di)})
+                    db.session.query(Item).filter(Item.id == item_id).update({Item.text: item_text})
                     db.session.commit()
                     item_ids.append(item_id)
                 else:
-                    item = Item(text=request.form.get(di), done=False, subtask_id=last_subtask_id)
+                    item = Item(text=item_text, done=False, subtask_id=last_subtask_id)
                     db.session.add(item)
                     db.session.commit()
                     item_ids.append(item.id)
@@ -88,6 +128,8 @@ def modify_task(task_id):
                         db.session.delete(item)
                         db.session.commit()
         db.session.commit()
+        if err:
+            return redirect(url_for('views.modify_task', task_id=task_id))
         return redirect(url_for('views.view_task', task_id=task_id))
 
     task = Task.query.get(task_id)
@@ -100,7 +142,7 @@ def view_task(task_id):
 
     if task:
         if task.user_id != current_user.id:
-            return render_template('error_403.html', user=current_user, error=gettext("You trying to access task that is not yours")), 403
+            return render_template('error_403.html', user=current_user, error=gettext('You trying to access task that is not yours')), 403
         return render_template('task.html', user=current_user, task=task)
     else:
         return render_template('error_404.html', user=current_user, error=gettext('There is no task with that id') + f'({task_id})'), 404

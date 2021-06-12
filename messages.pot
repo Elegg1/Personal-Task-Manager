@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-06 22:11+0500\n"
+"POT-Creation-Date: 2021-06-12 15:46+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,10 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
-
-#: website/__init__.py:28
-msgid "Please log in to access this page."
-msgstr ""
 
 #: website/auth.py:19
 msgid "Logged in"
@@ -57,28 +53,52 @@ msgstr ""
 msgid "New Task name cannot be empty"
 msgstr ""
 
-#: website/views.py:103
-msgid "You trying to access task that is not yours"
+#: website/views.py:35 website/views.py:84
+msgid "Subtask name cannot be empty"
 msgstr ""
 
-#: website/views.py:106
+#: website/templates/create_task.html:10 website/templates/modify_task.html:5
+#: website/templates/modify_task.html:19 website/views.py:37
+#: website/views.py:86
+msgid "Subtask"
+msgstr ""
+
+#: website/views.py:47 website/views.py:103
+msgid "Item text cannnot be empty"
+msgstr ""
+
+#: website/templates/create_task.html:14 website/templates/modify_task.html:4
+#: website/templates/modify_task.html:5 website/templates/modify_task.html:23
+#: website/views.py:49 website/views.py:105
+msgid "Item"
+msgstr ""
+
+#: website/views.py:66 website/views.py:148
 msgid "There is no task with that id"
 msgstr ""
 
-#: website/templates/base.html:60
+#: website/views.py:68 website/views.py:145
+msgid "You trying to access task that is not yours"
+msgstr ""
+
+#: website/views.py:77
+msgid "Task name cannot be empty"
+msgstr ""
+
+#: website/templates/base.html:59
 msgid "Home"
 msgstr ""
 
-#: website/templates/base.html:61
+#: website/templates/base.html:60
 msgid "Logout"
 msgstr ""
 
-#: website/templates/base.html:63 website/templates/login.html:2
+#: website/templates/base.html:62 website/templates/login.html:2
 #: website/templates/login.html:5 website/templates/login.html:27
 msgid "Login"
 msgstr ""
 
-#: website/templates/base.html:64 website/templates/sign_up.html:2
+#: website/templates/base.html:63 website/templates/sign_up.html:2
 #: website/templates/sign_up.html:5 website/templates/sign_up.html:47
 msgid "Sign Up"
 msgstr ""
@@ -87,24 +107,16 @@ msgstr ""
 msgid "Create"
 msgstr ""
 
-#: website/templates/create_task.html:10 website/templates/modify_task.html:9
-msgid "Subtask"
-msgstr ""
-
-#: website/templates/create_task.html:14 website/templates/modify_task.html:13
-msgid "Item"
-msgstr ""
-
-#: website/templates/create_task.html:22 website/templates/modify_task.html:21
-#: website/templates/modify_task.html:42
+#: website/templates/create_task.html:22 website/templates/modify_task.html:5
+#: website/templates/modify_task.html:31 website/templates/modify_task.html:52
 msgid "New Item"
 msgstr ""
 
-#: website/templates/create_task.html:26 website/templates/modify_task.html:47
+#: website/templates/create_task.html:26 website/templates/modify_task.html:57
 msgid "New Subtask"
 msgstr ""
 
-#: website/templates/create_task.html:30 website/templates/modify_task.html:51
+#: website/templates/create_task.html:30 website/templates/modify_task.html:61
 msgid "Create Task"
 msgstr ""
 
@@ -172,7 +184,7 @@ msgstr ""
 msgid "Modify "
 msgstr ""
 
-#: website/templates/modify_task.html:51
+#: website/templates/modify_task.html:61
 msgid "Save changes"
 msgstr ""
 

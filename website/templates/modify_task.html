@@ -3,8 +3,16 @@
 {% block content %}
 {% set new_item_call = 'create_task_new_item(this.id, "' + _('Item')+'")' %}
 {% set new_subtask_call = 'create_task_new_subtask("' + _('Subtask') + '", "' + _('Item') +'", "' + _('New Item') + '")' %}
-<h1 align="center" class="header-text">{{task.name}}</h1>
+
 <form method="POST" autocomplete="off">
+    {% if creating %}
+        <h1 align="center" class="header-text">{{task.name}}</h1>
+    {% else %}
+        <h1 align="center">
+            <input type="text" class="create-task-task-name" name="task_name" value="{{task.name}}"/>
+        </h1>
+    {% endif %}
+    
     <ul class="list list-group-flush create-task-subtask-list" id="subtasks_list">
         {% if creating and task.subtasks|length == 0 %}
             <li class="create-task-subtask">
